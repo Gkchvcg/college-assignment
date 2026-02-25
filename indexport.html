@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maroof Husain | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        body { background: #0f172a; color: #f8fafc; overflow-x: hidden; }
+        
+        /* Navigation */
+        nav { position: fixed; top: 0; width: 100%; padding: 20px 50px; background: rgba(15, 23, 42, 0.95); z-index: 100; display: flex; justify-content: space-between; border-bottom: 1px solid #1e293b; }
+        nav h1 { color: #38bdf8; font-size: 1.2rem; letter-spacing: 1px; }
+        nav ul { display: flex; gap: 20px; list-style: none; }
+        nav a { color: #f8fafc; text-decoration: none; font-weight: 600; transition: color 0.3s; }
+        nav a:hover { color: #38bdf8; }
+
+        /* Hero Section (Fixed background) */
+        .hero { 
+            height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            padding: 0 50px;
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1920&q=80') center/cover;
+        }
+        .hero h1 { font-size: 4rem; color: #f8fafc; margin-bottom: 15px; }
+        .hero p { font-size: 1.2rem; color: #cbd5e1; max-width: 700px; line-height: 1.6; margin-bottom: 25px; }
+        .hero .contact-info { color: #94a3b8; font-size: 1rem; }
+        .hero a { color: #38bdf8; text-decoration: none; margin-right: 15px; }
+
+        /* General Sections */
+        section { padding: 100px 50px; max-width: 1200px; margin: 0 auto; }
+        h2 { color: #38bdf8; font-size: 2rem; margin-bottom: 40px; border-bottom: 2px solid #1e293b; padding-bottom: 10px; }
+        
+        /* Grid Layout */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        
+        /* Cards */
+        .card { background: #1e293b; padding: 30px; border-radius: 12px; border: 1px solid #334155; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+        .card img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 20px; }
+        .card h3 { color: #f8fafc; margin-bottom: 15px; font-size: 1.4rem; }
+        .card ul { padding-left: 20px; color: #cbd5e1; line-height: 1.7; font-size: 0.95rem; }
+        
+        /* Skills Tags */
+        .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+        .tag { background: #0f172a; color: #38bdf8; border: 1px solid #38bdf8; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; }
+
+        /* Animations */
+        .animate { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .animate.visible { opacity: 1; transform: translateY(0); }
+
+        footer { text-align: center; padding: 30px; border-top: 1px solid #1e293b; color: #64748b; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <h1>MAROOF HUSAIN</h1>
+        <ul>
+            <li><a href="#summary">Summary</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills & Education</a></li>
+        </ul>
+    </nav>
+
+    <section id="summary" class="hero">
+        <div class="animate visible">
+            <h1>Maroof Husain</h1>
+            <p>Computer Science undergraduate skilled in Python, Java, and C with strong knowledge of Data Structures & Algorithms. Eager to apply technical skills and grow through hands-on experience.</p>
+            <div class="contact-info">
+                <a href="mailto:maroofhusain2005@gmail.com">maroofhusain2005@gmail.com</a>
+                <span>Gorakhpur, UP, India | +91 7355284571</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="animate">Projects</h2>
+        <div class="grid">
+            <div class="card animate">
+                <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=600&q=80" alt="To-Do App">
+                <h3>To-Do List Application</h3>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Streamlit</span>
+                    <span class="tag">SQLite</span>
+                </div>
+                <ul>
+                    <li>Built a task management web app with features to add, edit, mark as complete, and delete tasks.</li>
+                    <li>Designed a filtering system for tasks (all, pending, completed) to enhance usability.</li>
+                    <li>Integrated SQLite for persistent task storage across sessions.</li>
+                </ul>
+            </div>
+
+            <div class="card animate">
+                <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=600&q=80" alt="News Detector">
+                <h3>Fake News Detector</h3>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Machine Learning</span>
+                    <span class="tag">Streamlit</span>
+                </div>
+                <ul>
+                    <li>Built a system to check whether a news article is fake or real.</li>
+                    <li>Used Python and machine learning to understand and analyze news text.</li>
+                    <li>Cleaned and prepared text data before training the model.</li>
+                    <li>Created a simple Streamlit web app to test news articles in real time.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="animate">Skills, Certifications & Education</h2>
+        <div class="grid">
+            <div class="card animate">
+                <h3>Technical Skills</h3>
+                <div class="tags">
+                    <span class="tag">C, Python, Java</span>
+                    <span class="tag">OOPs, DSA</span>
+                    <span class="tag">Streamlit, JavaScript</span>
+                    <span class="tag">Pandas, Numpy, Matplotlib</span>
+                    <span class="tag">HTML, CSS</span>
+                    <span class="tag">SQL, SQLite</span>
+                    <span class="tag">Git, GitHub</span>
+                    <span class="tag">Tableau, MS Excel</span>
+                </div>
+            </div>
+
+            <div class="card animate">
+                <h3>Certifications</h3>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="margin-bottom: 10px;">• Data Analytics Job Simulation - Deloitte (Forage, 2024)</li>
+                    <li style="margin-bottom: 10px;">• ChatGPT for DevOps - Udemy (2024)</li>
+                    <li>• Tata GenAl Powered Data Analytics Completion Certificate</li>
+                </ul>
+            </div>
+
+            <div class="card animate">
+                <h3>Education</h3>
+                <h4 style="color: #f8fafc; margin-bottom: 5px;">B.Tech, Computer Science</h4>
+                <p style="color: #cbd5e1; margin-bottom: 5px;">Dr. A.P.J Abdul Kalam Technical University, Lucknow</p>
+                <p style="color: #38bdf8;">July 2023 - July 2027 | CGPA: 7.9/10</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Maroof Husain.</p>
+    </footer>
+
+    <script>
+        // Trigger animations when scrolling
+        document.addEventListener("DOMContentLoaded", function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.animate').forEach((el) => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
