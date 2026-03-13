@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>News App</title>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+background:#f4f4f4;
+margin:0;
+padding:0;
+text-align:center;
+}
+
+header{
+background:#111;
+color:white;
+padding:15px;
+font-size:24px;
+}
+
+select{
+padding:10px;
+margin:20px;
+font-size:16px;
+border-radius:5px;
+}
+
+#loading{
+font-size:18px;
+margin:20px;
+}
+
+#news{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+padding:20px;
+}
+
+.card{
+background:white;
+width:300px;
+padding:15px;
+border-radius:10px;
+box-shadow:0 5px 10px rgba(0,0,0,0.1);
+text-align:left;
+}
+
+.card img{
+width:100%;
+border-radius:10px;
+}
+
+.card h3{
+font-size:18px;
+margin:10px 0;
+}
+
+.card p{
+font-size:14px;
+color:#555;
+}
+
+.card a{
+display:inline-block;
+margin-top:10px;
+color:#007BFF;
+text-decoration:none;
+font-weight:bold;
+}
+
+.card a:hover{
+text-decoration:underline;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>📰 News App</header>
+
+<select id="topic">
+<option value="technology">Technology</option>
+<option value="sports">Sports</option>
+<option value="business">Business</option>
+<option value="health">Health</option>
+<option value="science">Science</option>
+</select>
+
+<div id="loading"></div>
+
+<div id="news"></div>
+
+<script>
+
+const API_KEY = "d238b4fd3a104b5d907c3187fdb16e5d";
+
+async function fetchNews(topic){
+
+document.getElementById("loading").innerText="Loading news...";
+
+const url = `https://newsapi.org/v2/top-headlines?country=in&category=${topic}&apiKey=${API_KEY}`;
+
+try{
+
+const response = await fetch(url);
+const data = await response.json();
+
+displayNews(data.articles);
+
+document.getElementById("loading").innerText="";
+
+}
+catch(error){
+
+document.getElementById("loading").innerText="Error loading news";
+
+}
+
+}
+
+function displayNews(articles){
+
+const newsContainer = document.getElementById("news");
+
+newsContainer.innerHTML="";
+
+articles.forEach(article => {
+
+const card = document.createElement("div");
+card.className="card";
+
+card.innerHTML = `
+<img src="${article.urlToImage || 'https://via.placeholder.com/300'}">
+<h3>${article.title}</h3>
+<p>${article.description || "No description available"}</p>
+<a href="${article.url}" target="_blank">Read More</a>
+`;
+
+newsContainer.appendChild(card);
+
+});
+
+}
+
+document.getElementById("topic").addEventListener("change",(e)=>{
+fetchNews(e.target.value);
+});
+
+window.onload = () => {
+fetchNews("technology");
+};
+
+</script>
+
+</body>
+</html>
